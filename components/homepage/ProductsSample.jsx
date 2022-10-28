@@ -8,23 +8,23 @@ import sampleProduct3 from '../../public/images/sample-product-3.jpg'
 const ProductsSample = () => {
 	return (
 		<Box
-			width={'100%'}
 			sx={{
 				margin: '0 auto',
-				marginTop: '7rem',
+				marginTop: '10rem',
 				width: {
-					md: '70%',
+					sm: '95%',
+					lg: '80%',
 				},
 			}}>
 			<Stack
-				justifyContent='space-between'
-				alignItems='center'
-				gap={5}
 				sx={{
 					flexDirection: {
-						md: 'row',
+						sm: 'row',
 					},
-				}}>
+				}}
+				justifyContent='space-between'
+				alignItems='center'
+				gap={5}>
 				<ProductSample name='Beloved' price='75€' img={sampleProduct1} />
 				<ProductSample name='Sweet Flower' price='75€' img={sampleProduct2} />
 				<ProductSample name='Eastern Tale' price='75€' img={sampleProduct3} />

@@ -19,17 +19,25 @@ const ProductSample = ({ name, price, img }) => {
 		<StyledCard
 			sx={{
 				width: {
-					xs: '100%',
-					md: '33%',
+					sm: '33%',
 				},
 			}}>
-			<CardMedia height={550} component='img' image={img.src} />
+			<CardMedia
+				sx={{
+					height: {
+						xl: '550px',
+					},
+				}}
+				height={350}
+				component='img'
+				image={img.src}
+			/>
 			<CardContent>
 				<Stack direction='row' justifyContent='space-between'>
-					<Typography color='teal' sx={{ fontWeight: '500' }}>
+					<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
 						{name}
 					</Typography>
-					<Typography color='teal' sx={{ fontWeight: '500' }}>
+					<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
 						{price}
 					</Typography>
 				</Stack>

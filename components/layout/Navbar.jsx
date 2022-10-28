@@ -20,14 +20,14 @@ const Navbar = () => {
 				backgroundColor: 'transparent',
 				boxShadow: 'none',
 				marginTop: '2rem',
-				color: '#777',
+				color: '#607d8b',
 				position: 'relative',
 			}}>
 			<Toolbar
 				sx={{
 					justifyContent: 'space-between',
 					width: '1140px',
-					maxWidth: '100%',
+					maxWidth: '80%',
 					margin: '0 auto',
 				}}>
 				<Typography
