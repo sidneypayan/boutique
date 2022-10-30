@@ -3,10 +3,15 @@ import {
 	Card,
 	CardMedia,
 	Stack,
-	Box,
 	CardContent,
 	Typography,
 } from '@mui/material'
+
+type ProductProps = {
+	name: string
+	price: string
+	img: string
+}
 
 const StyledCard = styled(Card)({
 	width: '300px',
@@ -14,7 +19,7 @@ const StyledCard = styled(Card)({
 	borderRadius: '0',
 })
 
-const ProductSample = ({ name, price, img }) => {
+const ProductSample = ({ name, price, img }: ProductProps) => {
 	return (
 		<StyledCard
 			sx={{

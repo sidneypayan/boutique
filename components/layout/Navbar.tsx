@@ -4,14 +4,7 @@ import {
 	Person,
 	ShoppingCart,
 } from '@mui/icons-material'
-import {
-	Box,
-	AppBar,
-	Badge,
-	IconButton,
-	Toolbar,
-	Typography,
-} from '@mui/material'
+import { Box, AppBar, IconButton, Toolbar, Typography } from '@mui/material'
 
 const Navbar = () => {
 	return (
