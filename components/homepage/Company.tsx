@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 
-const Firm = () => {
+const Company = () => {
 	return (
 		<Box
 			mt={8}
@@ -72,11 +72,20 @@ const Firm = () => {
 						width={205}
 						component='img'
 						src='/images/termo.jpg'></Box>
-					<Box width={205} component='img' src='/images/sewing.jpg'></Box>
+					<Box
+						sx={{
+							display: {
+								xs: 'none',
+								sm: 'block',
+							},
+						}}
+						width={205}
+						component='img'
+						src='/images/sewing.jpg'></Box>
 				</Stack>
 			</Stack>
 		</Box>
 	)
 }
 
-export default Firm
+export default Company

@@ -7,7 +7,7 @@ import CreditCardOffIcon from '@mui/icons-material/CreditCardOff'
 const Transaction = () => {
 	return (
 		<Stack
-			width='80%'
+			width='70%'
 			gap={5}
 			color='#424242'
 			alignItems='center'
@@ -20,27 +20,19 @@ const Transaction = () => {
 			}}>
 			<Stack alignItems='center' gap={2}>
 				<AccessTimeFilledIcon sx={{ fontSize: '4rem' }} />
-				<Typography color='#424242' variant='h5'>
-					Livraison en 48h
-				</Typography>
+				<Typography variant='h5'>Livraison en 48h</Typography>
 			</Stack>
 			<Stack alignItems='center' gap={2}>
 				<ShieldIcon sx={{ fontSize: '4rem' }} />
-				<Typography color='#424242' variant='h5'>
-					Transation sécurisée
-				</Typography>
+				<Typography variant='h5'>Transation sécurisée</Typography>
 			</Stack>
 			<Stack alignItems='center' gap={2}>
 				<LocalShippingIcon sx={{ fontSize: '4rem' }} />
-				<Typography color='#424242' variant='h5'>
-					Retour gratuit
-				</Typography>
+				<Typography variant='h5'>Retour gratuit</Typography>
 			</Stack>
 			<Stack alignItems='center' gap={2}>
 				<CreditCardOffIcon sx={{ fontSize: '4rem' }} />
-				<Typography color='#424242' variant='h5'>
-					Livraison en 48h
-				</Typography>
+				<Typography variant='h5'>Livraison en 48h</Typography>
 			</Stack>
 		</Stack>
 	)

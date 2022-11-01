@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Firm from '../components/homepage/Firm'
+import Company from '../components/homepage/Company'
 import Hero from '../components/homepage/Hero'
 import Instagram from '../components/homepage/Instagram'
-import ProductsSample from '../components/homepage/ProductsSample'
+import FeaturedProducts from '../components/homepage/FeaturedProducts'
 import Transaction from '../components/homepage/Transaction'
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Hero />
-			<ProductsSample />
-			<Firm />
+			<FeaturedProducts />
+			<Company />
 			<Instagram />
 			<Transaction />
 		</div>

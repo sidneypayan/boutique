@@ -8,10 +8,15 @@ import {
 } from '@mui/material'
 
 type ProductProps = {
+	id: number
 	name: string
-	price: string
+	price: number
 	img: string
+	size: string
+	material: string
 }
+
+import { formatPrice } from '../../utils/helpers'
 
 const StyledCard = styled(Card)({
 	width: '300px',
@@ -35,7 +40,7 @@ const ProductSample = ({ name, price, img }: ProductProps) => {
 				}}
 				height={350}
 				component='img'
-				image={img.src}
+				image={img}
 			/>
 			<CardContent>
 				<Stack direction='row' justifyContent='space-between'>
@@ -43,7 +48,7 @@ const ProductSample = ({ name, price, img }: ProductProps) => {
 						{name}
 					</Typography>
 					<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
-						{price}
+						{formatPrice(price)}
 					</Typography>
 				</Stack>
 			</CardContent>

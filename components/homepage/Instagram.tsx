@@ -4,50 +4,17 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import { Box, Container, Divider, Stack, Typography } from '@mui/material'
+import { Box, Container, Divider, Typography } from '@mui/material'
 import React from 'react'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import InstagramIcon from '@mui/icons-material/Instagram'
 
-const instaImg = [
-	{
-		id: 1,
-		img: '/images/insta-1.jpg',
-	},
-	{
-		id: 2,
-		img: '/images/insta-2.jpg',
-	},
-	{
-		id: 3,
-		img: '/images/insta-3.jpg',
-	},
-	{
-		id: 4,
-		img: '/images/insta-4.jpg',
-	},
-	{
-		id: 5,
-		img: '/images/insta-5.jpg',
-	},
-	{
-		id: 6,
-		img: '/images/insta-6.jpg',
-	},
-	{
-		id: 7,
-		img: '/images/insta-7.jpg',
-	},
-	{
-		id: 8,
-		img: '/images/insta-8.jpg',
-	},
-]
+import { instagramImg } from '../../utils/constants'
 
 const Instagram = () => {
 	return (
-		<Container sx={{ marginTop: '8rem' }} width={'90%'}>
+		<Container sx={{ marginTop: '8rem' }}>
 			<Box mb={10}>
 				<Typography
 					display='flex'
@@ -58,9 +25,9 @@ const Instagram = () => {
 					textAlign='center'
 					variant='h3'
 					mb={2}>
-					Vous et votre écharpe <InstagramIcon fontSize='20px' />
+					Vous et votre écharpe <InstagramIcon fontSize='inherit' />
 				</Typography>
-				<Divider width={'50%'} sx={{ margin: '2rem auto' }} />
+				<Divider sx={{ margin: '2rem auto', width: '20%' }} />
 				<Typography
 					display='flex'
 					alignItems='center'
@@ -93,7 +60,7 @@ const Instagram = () => {
 				pagination={{ clickable: true }}
 				onSwiper={swiper => console.log(swiper)}
 				onSlideChange={() => console.log('slide change')}>
-				{instaImg.map(item => (
+				{instagramImg.map(item => (
 					<SwiperSlide key={item.img}>
 						<Box
 							sx={{
@@ -128,7 +95,7 @@ const Instagram = () => {
 				pagination={{ clickable: true }}
 				onSwiper={swiper => console.log(swiper)}
 				onSlideChange={() => console.log('slide change')}>
-				{instaImg.reverse().map(item => (
+				{instagramImg.reverse().map(item => (
 					<SwiperSlide key={item.img}>
 						<Box
 							sx={{
