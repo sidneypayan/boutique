@@ -1,27 +1,34 @@
 {
-  "name": "boutique",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/material": "^5.10.10",
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "swiper": "^8.4.4"
-  },
-  "devDependencies": {
-    "@types/node": "18.11.7",
-    "eslint": "8.26.0",
-    "eslint-config-next": "12.3.1",
-    "typescript": "4.8.4"
-  }
+	"name": "boutique",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"devStart": "nodemon lib/prisma.ts"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.4",
+		"@emotion/styled": "^11.10.4",
+		"@mui/icons-material": "^5.10.9",
+		"@mui/material": "^5.10.10",
+		"@prisma/client": "^4.5.0",
+		"axios": "^1.1.3",
+		"babel-plugin-styled-components": "^2.0.7",
+		"next": "12.3.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"swiper": "^8.4.4"
+	},
+	"devDependencies": {
+		"@types/node": "18.11.7",
+		"eslint": "8.26.0",
+		"eslint-config-next": "12.3.1",
+		"nodemon": "^2.0.20",
+		"prisma": "^4.5.0",
+		"typescript": "4.8.4",
+		"webpack-bundle-analyzer": "^4.7.0"
+	}
 }

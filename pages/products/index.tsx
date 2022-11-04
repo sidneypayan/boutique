@@ -14,10 +14,11 @@ import {
 	Typography,
 	Container,
 	Divider,
+	CardActionArea,
 } from '@mui/material'
 import { Stack } from '@mui/system'
-import { products } from '../utils/constants'
-import { formatPrice } from '../utils/helpers'
+import { formatPrice } from '../../utils/helpers'
+import { useProductsContext } from '../../context/products_context'
 
 const StyledButton = styled(Button)({
 	justifyContent: 'start',
@@ -27,6 +28,8 @@ const StyledButton = styled(Button)({
 })
 
 const Products = () => {
+	const { products } = useProductsContext()
+
 	return (
 		<Stack
 			sx={{
@@ -55,9 +58,9 @@ const Products = () => {
 						label='size'
 						// onChange={handleChange}
 					>
-						<MenuItem value={89}>89x89</MenuItem>
-						<MenuItem value={125}>125x125</MenuItem>
-						<MenuItem value={148}>148x148</MenuItem>
+						<MenuItem>89x89</MenuItem>
+						<MenuItem>125x125</MenuItem>
+						<MenuItem>148x148</MenuItem>
 					</Select>
 				</FormControl>
 			</Stack>
@@ -66,43 +69,50 @@ const Products = () => {
 					direction='row'
 					alignItems='center'
 					justifyContent='space-between'
-					gap={2}>
+					gap={2}
+					mb={5}>
 					<Typography>11 Produits trouvés</Typography>
 					<Divider sx={{ width: '60%' }}></Divider>
 
 					<FormControl
 						component='fieldset'
-						sx={{ marginBottom: '1rem', width: '150px' }}>
-						<InputLabel id='demo-simple-select-label'>Trier</InputLabel>
+						sx={{
+							width: '100px',
+							justifyContent: 'center',
+						}}>
+						<InputLabel id='trier'>Trier</InputLabel>
 						<Select
-							labelId='demo-simple-select-label'
+							sx={{ '.MuiOutlinedInput-notchedOutline': { border: 0 } }}
+							labelId='trier'
 							id='demo-simple-select'
 							// value={size}
 							label='size'
 							// onChange={handleChange}
 						>
-							<MenuItem value={89}>Le moins cher</MenuItem>
-							<MenuItem value={125}>Le plus cher</MenuItem>
-							<MenuItem value={148}>Nom (A-Z)</MenuItem>
-							<MenuItem value={148}>Nom (Z-A)</MenuItem>
+							<MenuItem>Le moins cher</MenuItem>
+							<MenuItem>Le plus cher</MenuItem>
+							<MenuItem>Nom (A-Z)</MenuItem>
+							<MenuItem>Nom (Z-A)</MenuItem>
 						</Select>
 					</FormControl>
 				</Stack>
 				<Grid container spacing={3} sx={{ margin: '0 auto', flexBasis: '85%' }}>
-					{products.slice(3, -1).map(item => (
+					{products.map(item => (
 						<Grid item key={item.id} xs={12} sm={6} md={4}>
 							<Box>
-								<CardMedia component='img' image={item.img} />
-								<CardContent>
-									<Stack direction='row' justifyContent='space-between'>
-										<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
-											{item.name}
-										</Typography>
-										<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
-											{formatPrice(item.price)}
-										</Typography>
-									</Stack>
-								</CardContent>
+								<CardActionArea href={`/products/${item.id}`}>
+									<CardMedia component='img' image={item.img} alt={item.name} />
+									<CardContent>
+										<Stack direction='row' justifyContent='space-between'>
+											<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
+												{item.name}
+											</Typography>
+											<Typography color='#607d8b' sx={{ fontWeight: '500' }}>
+												{formatPrice(item.price)}
+											</Typography>
+										</Stack>
+									</CardContent>
+								</CardActionArea>
 							</Box>
 						</Grid>
 					))}

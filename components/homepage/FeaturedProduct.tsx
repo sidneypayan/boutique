@@ -8,12 +8,9 @@ import {
 } from '@mui/material'
 
 type ProductProps = {
-	id: number
 	name: string
 	price: number
 	img: string
-	size: string
-	material: string
 }
 
 import { formatPrice } from '../../utils/helpers'

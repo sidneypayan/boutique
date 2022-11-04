@@ -1,4 +1,4 @@
-import { products } from '../../utils/constants'
+import { featured_products } from '../../utils/constants'
 
 import { Box, Stack } from '@mui/material'
 import FeaturedProduct from './FeaturedProduct'
@@ -23,7 +23,7 @@ const ProductsSample = () => {
 				justifyContent='space-between'
 				alignItems='center'
 				gap={5}>
-				{products.slice(0, 3).map(item => (
+				{featured_products.map(item => (
 					<FeaturedProduct key={item.id} {...item} />
 				))}
 			</Stack>
