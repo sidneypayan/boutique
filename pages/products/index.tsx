@@ -9,12 +9,13 @@ import {
 } from '@mui/material'
 import { Stack } from '@mui/system'
 import { formatPrice } from '../../utils/helpers'
-import { useProductsContext } from '../../context/products_context'
+// import { useProductsContext } from '../../context/products_context'
+import { useFilterContext } from '../../context/filter_context'
 import Filters from '../../components/Filters'
 import Sort from '../../components/Sort'
 
 const Products = () => {
-	const { products } = useProductsContext()
+	const { filtered_products: products } = useFilterContext()
 
 	return (
 		<Stack

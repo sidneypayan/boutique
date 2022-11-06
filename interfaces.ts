@@ -19,6 +19,6 @@ export type FilterState = {
 	sort: string
 	filters: {
 		material: string
-		size: string | number
+		size: string
 	}
 }

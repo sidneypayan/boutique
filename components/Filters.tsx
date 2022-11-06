@@ -30,13 +30,22 @@ const Filters = () => {
 			<FormControl component='fieldset' sx={{ marginBottom: '1rem' }}>
 				<FormLabel sx={{ fontWeight: '600' }}>Category</FormLabel>
 				<FormGroup sx={{ marginTop: '1rem' }}>
-					<StyledButton name='material' onClick={updateFilters}>
+					<StyledButton
+						data-category='all'
+						name='material'
+						onClick={updateFilters}>
 						Voir tout
 					</StyledButton>
-					<StyledButton name='material' onClick={updateFilters}>
+					<StyledButton
+						data-category='wool'
+						name='material'
+						onClick={updateFilters}>
 						Laine
 					</StyledButton>
-					<StyledButton name='material' onClick={updateFilters}>
+					<StyledButton
+						data-category='silk'
+						name='material'
+						onClick={updateFilters}>
 						Soie
 					</StyledButton>
 				</FormGroup>
@@ -51,9 +60,9 @@ const Filters = () => {
 					label='size'
 					onChange={updateFilters}>
 					<MenuItem value={'all'}>Toutes les tailles</MenuItem>
-					<MenuItem value={89}>89x89</MenuItem>
-					<MenuItem value={125}>125x125</MenuItem>
-					<MenuItem value={148}>148x148</MenuItem>
+					<MenuItem value='89'>89x89</MenuItem>
+					<MenuItem value='125'>125x125</MenuItem>
+					<MenuItem value='148'>148x148</MenuItem>
 				</Select>
 			</FormControl>
 		</Stack>

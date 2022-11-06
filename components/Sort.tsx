@@ -10,7 +10,9 @@ import {
 import { useFilterContext } from '../context/filter_context'
 
 const Sort = () => {
-	const { sort } = useFilterContext()
+	const { sort, updateSort } = useFilterContext()
+	console.log(sort)
+
 	return (
 		<Stack
 			direction='row'
@@ -33,8 +35,7 @@ const Sort = () => {
 					id='demo-simple-select'
 					value={sort}
 					label='sort'
-					// onChange={handleChange}
-				>
+					onChange={updateSort}>
 					<MenuItem value='price-lowest'>Le moins cher</MenuItem>
 					<MenuItem value='price-highest'>Le plus cher</MenuItem>
 					<MenuItem value='name-a'>Nom (A-Z)</MenuItem>
