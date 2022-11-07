@@ -4,7 +4,14 @@ import {
 	Person,
 	ShoppingCart,
 } from '@mui/icons-material'
-import { Box, AppBar, IconButton, Toolbar, Typography } from '@mui/material'
+import {
+	Box,
+	AppBar,
+	IconButton,
+	Toolbar,
+	Typography,
+	Badge,
+} from '@mui/material'
 
 const Navbar = () => {
 	return (
@@ -35,11 +42,13 @@ const Navbar = () => {
 					<IconButton>
 						<FavoriteBorderOutlined />
 					</IconButton>
-					<IconButton>
+					<IconButton href='/api/auth/signin'>
 						<Person />
 					</IconButton>
 					<IconButton>
-						<ShoppingCart />
+						<Badge badgeContent={4} color='primary'>
+							<ShoppingCart />
+						</Badge>
 					</IconButton>
 				</Box>
 			</Toolbar>

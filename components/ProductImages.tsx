@@ -5,7 +5,7 @@ import React from 'react'
 const StyledImage = styled(Box)({
 	position: 'relative',
 	width: '100%',
-	height: '100px',
+	height: '75px',
 })
 
 const ProductImages = () => {
@@ -29,7 +29,7 @@ const ProductImages = () => {
 			</Box>
 			<Box
 				sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}
-				gap={2}>
+				gap={2.5}>
 				<StyledImage>
 					<Image
 						style={{ borderRadius: '5px' }}

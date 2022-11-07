@@ -1,4 +1,5 @@
 import { Button, Container, Stack, Typography, Divider } from '@mui/material'
+import AddToCart from '../../components/AddToCart'
 
 import ProductImages from '../../components/ProductImages'
 import Stars from '../../components/Stars'
@@ -6,7 +7,11 @@ import Stars from '../../components/Stars'
 const Product = () => {
 	return (
 		<Container sx={{ maxWidth: '1170px', marginTop: '5rem' }}>
-			<Button sx={{ backgroundColor: '#f4f4f4', marginBottom: '2rem' }}>
+			<Button
+				variant='contained'
+				sx={{
+					marginBottom: '2rem',
+				}}>
 				Retour aux produits
 			</Button>
 			<Stack sx={{ flexDirection: { md: 'row' } }}>
@@ -28,6 +33,7 @@ const Product = () => {
 						sapiente ut ipsum est excepturi reiciendis deleniti quibusdam.
 					</Typography>
 					<Divider sx={{ margin: '2rem auto' }}></Divider>
+					<AddToCart />
 				</Container>
 			</Stack>
 		</Container>
