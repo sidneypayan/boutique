@@ -3,6 +3,7 @@ import {
 	FavoriteBorderOutlined,
 	Person,
 	ShoppingCart,
+	Logout,
 } from '@mui/icons-material'
 import {
 	Box,
@@ -13,7 +14,11 @@ import {
 	Badge,
 } from '@mui/material'
 
+import { signIn, signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
+
 const Navbar = () => {
+	const { data: session, status } = useSession()
 	return (
 		<AppBar
 			sx={{
@@ -42,9 +47,15 @@ const Navbar = () => {
 					<IconButton>
 						<FavoriteBorderOutlined />
 					</IconButton>
-					<IconButton href='/api/auth/signin'>
-						<Person />
-					</IconButton>
+					{status === 'authenticated' ? (
+						<IconButton onClick={() => signOut()}>
+							<Logout />
+						</IconButton>
+					) : (
+						<IconButton onClick={() => signIn()}>
+							<Person />
+						</IconButton>
+					)}
 					<IconButton>
 						<Badge badgeContent={4} color='primary'>
 							<ShoppingCart />

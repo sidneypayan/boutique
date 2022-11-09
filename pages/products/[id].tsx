@@ -3,10 +3,13 @@ import AddToCart from '../../components/AddToCart'
 
 import ProductImages from '../../components/ProductImages'
 import Stars from '../../components/Stars'
+import { formatPrice } from '../../utils/helpers'
 
-const Product = () => {
+import axios from 'axios'
+
+const Product = ({ product }) => {
 	return (
-		<Container sx={{ maxWidth: '1170px', marginTop: '5rem' }}>
+		<Container sx={{ maxWidth: '1170px', margin: '5rem auto' }}>
 			<Button
 				variant='contained'
 				sx={{
@@ -18,11 +21,11 @@ const Product = () => {
 				<ProductImages />
 				<Container>
 					<Typography variant='h4' mb={1} sx={{ fontWeight: '600' }}>
-						Product Name
+						{product.name}
 					</Typography>
 					<Stars />
 					<Typography variant='h5' mb={2} sx={{ fontWeight: '500' }}>
-						50€
+						{formatPrice(product.price)}
 					</Typography>
 					<Typography variant='body1' sx={{ lineHeight: '2rem' }}>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
@@ -38,6 +41,31 @@ const Product = () => {
 			</Stack>
 		</Container>
 	)
+}
+
+export const getStaticProps = async ({ params }) => {
+	const response = await axios(
+		`http://localhost:3000/api/products/${params.id}`
+	)
+	const product = response.data
+
+	return {
+		props: {
+			product,
+		},
+		revalidate: 60,
+	}
+}
+
+export const getStaticPaths = async () => {
+	const response = await axios('http://localhost:3000/api/products')
+	const products = response.data
+
+	const paths = products.map(product => ({
+		params: { id: product.id.toString() },
+	}))
+
+	return { paths, fallback: 'blocking' }
 }
 
 export default Product

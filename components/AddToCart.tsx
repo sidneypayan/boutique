@@ -1,8 +1,11 @@
 import { Add, Remove } from '@mui/icons-material'
 import { Typography, Stack, IconButton, Button } from '@mui/material'
 import { Container } from '@mui/system'
+import { useCartContext } from '../context/cart_context'
 
 const AddToCart = () => {
+	const { addProductToCart } = useCartContext()
+
 	return (
 		<Container>
 			<Stack direction='row' alignItems='center' gap={2} mb={2}>
@@ -12,7 +15,7 @@ const AddToCart = () => {
 				<Typography variant='h4' sx={{ fontWeight: '500' }}>
 					1
 				</Typography>
-				<IconButton>
+				<IconButton onClick={e => addProductToCart()}>
 					<Add />
 				</IconButton>
 			</Stack>

@@ -22,3 +22,7 @@ export type FilterState = {
 		size: string
 	}
 }
+
+export type CartState = {
+	cart: Product[]
+}
