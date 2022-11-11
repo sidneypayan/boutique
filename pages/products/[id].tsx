@@ -1,25 +1,52 @@
-import { Button, Container, Stack, Typography, Divider } from '@mui/material'
+import { GetStaticProps, GetStaticPaths } from 'next'
+import {
+	Button,
+	Container,
+	Stack,
+	Typography,
+	Divider,
+	Box,
+} from '@mui/material'
 import AddToCart from '../../components/AddToCart'
 
 import ProductImages from '../../components/ProductImages'
 import Stars from '../../components/Stars'
 import { formatPrice } from '../../utils/helpers'
+import { useState } from 'react'
 
 import axios from 'axios'
+import Link from 'next/link'
 
-const Product = ({ product }) => {
+type ProductProps = {
+	product: {
+		createAt: string
+		id: number
+		img: string
+		material: string
+		name: string
+		price: number
+		size: string
+		updateAt: string
+	}
+}
+
+const Product = ({ product }: ProductProps) => {
+	const [quantity, setQuantity] = useState(1)
+
 	return (
-		<Container sx={{ maxWidth: '1170px', margin: '5rem auto' }}>
+		<Container sx={{ margin: '5rem auto' }}>
 			<Button
 				variant='contained'
 				sx={{
 					marginBottom: '2rem',
 				}}>
-				Retour aux produits
+				<Link href='/products'>
+					<Typography variant='button'>Retour aux produits</Typography>
+				</Link>
 			</Button>
-			<Stack sx={{ flexDirection: { md: 'row' } }}>
+			<Stack sx={{ flexDirection: { md: 'row' } }} gap={4}>
 				<ProductImages />
-				<Container>
+				<Box width='100%'>
 					<Typography variant='h4' mb={1} sx={{ fontWeight: '600' }}>
 						{product.name}
 					</Typography>
@@ -36,14 +63,18 @@ const Product = ({ product }) => {
 						sapiente ut ipsum est excepturi reiciendis deleniti quibusdam.
 					</Typography>
 					<Divider sx={{ margin: '2rem auto' }}></Divider>
-					<AddToCart />
-				</Container>
+					<AddToCart
+						product={product}
+						quantity={quantity}
+						setQuantity={setQuantity}
+					/>
+				</Box>
 			</Stack>
 		</Container>
 	)
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const response = await axios(
 		`http://localhost:3000/api/products/${params.id}`
 	)
@@ -57,7 +88,7 @@ export const getStaticProps = async ({ params }) => {
 	}
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
 	const response = await axios('http://localhost:3000/api/products')
 	const products = response.data
 

@@ -1,16 +1,24 @@
-import { Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 
 import { Facebook, Instagram, Twitter } from '@mui/icons-material'
+import Image from 'next/image'
 
 const Footer = () => {
 	return (
 		<Stack
-			gap={3}
+			color='#424242'
+			component='footer'
+			gap={2}
 			alignItems='center'
 			justifyContent='center'
 			sx={{
 				backgroundColor: '#e3f2fd',
-				padding: '4rem',
+				height: '10rem',
+				padding: '0 5rem',
+				paddingTop: {
+					xs: '3rem',
+					md: '0',
+				},
 				flexDirection: {
 					md: 'row',
 				},
@@ -28,15 +36,29 @@ const Footer = () => {
 				<Typography variant='subtitle2'>Nous écrire</Typography>
 			</Stack>
 
+			<Box
+				sx={{
+					position: 'relative',
+					width: { xs: '75px', md: '125px' },
+					height: { xs: '75px', md: '125px' },
+					display: {
+						xs: 'none',
+						md: 'block',
+					},
+				}}>
+				<Image
+					src='/images/logo.png'
+					layout='fill'
+					objectFit='cover'
+					alt='logo'
+				/>
+			</Box>
+
 			<Stack direction='row' gap={3}>
 				<Facebook fontSize='large' />
 				<Instagram fontSize='large' />
 				<Twitter fontSize='large' />
 			</Stack>
-
-			<Typography variant='h4' textAlign='center' sx={{ order: 3 }}>
-				ECHARPE & BELLE
-			</Typography>
 		</Stack>
 	)
 }

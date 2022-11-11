@@ -12,10 +12,12 @@ import {
 	Toolbar,
 	Typography,
 	Badge,
+	Container,
 } from '@mui/material'
 
 import { signIn, signOut } from 'next-auth/react'
 import { useSession } from 'next-auth/react'
+import Link from 'next/link'
 
 const Navbar = () => {
 	const { data: session, status } = useSession()
@@ -24,29 +26,32 @@ const Navbar = () => {
 			sx={{
 				backgroundColor: 'transparent',
 				boxShadow: 'none',
-				marginTop: '2rem',
 				color: '#607d8b',
 				position: 'relative',
+				maxWidth: '1440px',
+				margin: '0 auto',
+				marginBottom: '5rem',
 			}}>
 			<Toolbar
 				sx={{
 					justifyContent: 'space-between',
-					width: '1140px',
-					maxWidth: '80%',
-					margin: '0 auto',
+					paddingTop: '4rem',
 				}}>
-				<Typography
-					variant='h5'
-					sx={{
-						display: { xs: 'none', sm: 'block' },
-					}}>
-					BOUTIQUE
-				</Typography>
+				<Link href='/'>
+					<Typography
+						variant='h5'
+						sx={{
+							display: { xs: 'none', sm: 'block' },
+							cursor: 'pointer',
+						}}>
+						BOUTIQUE
+					</Typography>
+				</Link>
 				<Diamond sx={{ display: { xs: 'block', sm: 'none' } }} />
 				<Box>
-					<IconButton>
+					{/* <IconButton>
 						<FavoriteBorderOutlined />
-					</IconButton>
+					</IconButton> */}
 					{status === 'authenticated' ? (
 						<IconButton onClick={() => signOut()}>
 							<Logout />
@@ -56,11 +61,13 @@ const Navbar = () => {
 							<Person />
 						</IconButton>
 					)}
-					<IconButton>
-						<Badge badgeContent={4} color='primary'>
-							<ShoppingCart />
-						</Badge>
-					</IconButton>
+					<Link href='/cart'>
+						<IconButton>
+							<Badge badgeContent={4} color='primary'>
+								<ShoppingCart />
+							</Badge>
+						</IconButton>
+					</Link>
 				</Box>
 			</Toolbar>
 		</AppBar>

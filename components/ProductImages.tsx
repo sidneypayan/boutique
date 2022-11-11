@@ -10,7 +10,7 @@ const StyledImage = styled(Box)({
 
 const ProductImages = () => {
 	return (
-		<Container>
+		<Box width={'100%'}>
 			<Box
 				sx={{
 					position: 'relative',
@@ -81,7 +81,7 @@ const ProductImages = () => {
 						alt='product'></Image>
 				</StyledImage>
 			</Box>
-		</Container>
+		</Box>
 	)
 }
 

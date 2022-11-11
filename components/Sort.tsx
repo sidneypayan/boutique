@@ -9,9 +9,12 @@ import {
 } from '@mui/material'
 import { useFilterContext } from '../context/filter_context'
 
-const Sort = () => {
+type SortProps = {
+	productsCount: number
+}
+
+const Sort = ({ productsCount }: SortProps) => {
 	const { sort, updateSort } = useFilterContext()
-	console.log(sort)
 
 	return (
 		<Stack
@@ -20,7 +23,7 @@ const Sort = () => {
 			justifyContent='space-between'
 			gap={2}
 			mb={5}>
-			<Typography>11 Produits trouvés</Typography>
+			<Typography>{productsCount} Produits trouvés</Typography>
 			<Divider sx={{ width: '60%' }}></Divider>
 
 			<FormControl

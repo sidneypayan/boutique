@@ -5,6 +5,7 @@ export type Product = {
 	price: number
 	size: string | number
 	material: string
+	quantity?: number
 }
 
 export type ProductsState = {
