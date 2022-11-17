@@ -69,9 +69,10 @@ const filter_reducer = (state: FilterState, action: FilterAction) => {
 					(a, b) => a.price - b.price
 				)
 			}
-			if (sort === 'price-lowest') {
+
+			if (sort === 'price-highest') {
 				tempSortedProducts = tempSortedProducts.sort(
-					(a, b) => a.price - b.price
+					(a, b) => b.price - a.price
 				)
 			}
 
