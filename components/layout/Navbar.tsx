@@ -1,6 +1,6 @@
 import {
 	Diamond,
-	FavoriteBorderOutlined,
+	// FavoriteBorderOutlined,
 	Person,
 	ShoppingCart,
 	Logout,
@@ -12,15 +12,19 @@ import {
 	Toolbar,
 	Typography,
 	Badge,
-	Container,
 } from '@mui/material'
 
 import { signIn, signOut } from 'next-auth/react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useCartContext } from '../../context/cart_context'
 
 const Navbar = () => {
-	const { data: session, status } = useSession()
+	const { status } = useSession()
+	const { total_quantity } = useCartContext()
+
+	// console.log(total_quantity)
+
 	return (
 		<AppBar
 			sx={{
@@ -63,7 +67,7 @@ const Navbar = () => {
 					)}
 					<Link href='/cart'>
 						<IconButton>
-							<Badge badgeContent={4} color='primary'>
+							<Badge badgeContent={total_quantity} color='primary'>
 								<ShoppingCart />
 							</Badge>
 						</IconButton>

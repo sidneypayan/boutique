@@ -14,19 +14,18 @@ import Stars from '../../components/Stars'
 import { formatPrice } from '../../utils/helpers'
 import { useState } from 'react'
 
-import axios from 'axios'
+// import axios from 'axios'
+import { prisma } from '../../lib/prisma'
 import Link from 'next/link'
 
 type ProductProps = {
 	product: {
-		createAt: string
 		id: number
 		img: string
 		material: string
 		name: string
 		price: number
 		size: string
-		updateAt: string
 	}
 }
 
@@ -75,10 +74,21 @@ const Product = ({ product }: ProductProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const response = await axios(
-		`http://localhost:3000/api/products/${params.id}`
-	)
-	const product = response.data
+	const product = await prisma.product.findUnique({
+		where: {
+			id: Number(params.id),
+		},
+		select: {
+			id: true,
+			name: true,
+			img: true,
+			price: true,
+			size: true,
+			material: true,
+		},
+	})
+	// const response = await axios(`/api/products/${params.id}`)
+	// const product = response.data
 
 	return {
 		props: {
@@ -89,10 +99,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const response = await axios('http://localhost:3000/api/products')
-	const products = response.data
+	const products = await prisma.product.findMany()
+	// const response = await axios('/api/products')
+	// const products = response.data
 
-	const paths = products.map(product => ({
+	const paths = products.map((product: ProductProps['product']) => ({
 		params: { id: product.id.toString() },
 	}))
 

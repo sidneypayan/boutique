@@ -1,4 +1,4 @@
-import { Box, Container, styled } from '@mui/system'
+import { Box, styled } from '@mui/system'
 import Image from 'next/image'
 import React from 'react'
 

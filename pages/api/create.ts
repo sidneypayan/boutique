@@ -1,8 +1,7 @@
 import { prisma } from '../../lib/prisma'
-import { NextApiRequest, NextApiResponse } from 'next'
 import { products } from '../../utils/constants'
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = () => {
 	const main = async () => {
 		try {
 			await prisma.product.deleteMany()

@@ -1,1 +1,1 @@
-const useLocalStorage = () => {}
+export const useLocalStorage = () => {}

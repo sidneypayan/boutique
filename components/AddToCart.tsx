@@ -3,23 +3,23 @@ import { Typography, Stack, IconButton, Button } from '@mui/material'
 import { Container } from '@mui/system'
 import { useCartContext } from '../context/cart_context'
 import { Dispatch, SetStateAction } from 'react'
+import { useRouter } from 'next/router'
 
 type ProductProps = {
 	product: {
-		createAt: string
 		id: number
 		img: string
 		material: string
 		name: string
 		price: number
 		size: string
-		updateAt: string
 	}
 	quantity: number
 	setQuantity: Dispatch<SetStateAction<number>>
 }
 
 const AddToCart = ({ product, quantity, setQuantity }: ProductProps) => {
+	const router = useRouter()
 	const { addProductToCart } = useCartContext()
 
 	const { id, img, material, name, price, size } = product
@@ -50,6 +50,7 @@ const AddToCart = ({ product, quantity, setQuantity }: ProductProps) => {
 				onClick={() => {
 					addProductToCart({ id, img, material, name, price, size, quantity })
 					setQuantity(1)
+					// router.push('/cart')
 				}}>
 				Add to cart
 			</Button>

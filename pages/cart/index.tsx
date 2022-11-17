@@ -1,15 +1,22 @@
 import { Delete } from '@mui/icons-material'
-import { Box, Container, Divider, IconButton, Typography } from '@mui/material'
+import {
+	Box,
+	Button,
+	Container,
+	Divider,
+	IconButton,
+	Typography,
+} from '@mui/material'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import AddAmountButton from '../../components/AddAmountButton'
 import { useCartContext } from '../../context/cart_context'
 import { formatPrice } from '../../utils/helpers'
 
 const Cart = () => {
-	const { cart } = useCartContext()
+	const { cart, total_price, deleteProductFromCart } = useCartContext()
 
 	const [cartProducts, setCartProducts] = useState([])
-	console.log(cartProducts)
 
 	useEffect(() => {
 		setCartProducts(cart)
@@ -24,7 +31,7 @@ const Cart = () => {
 			<Box
 				sx={{
 					display: 'grid',
-					gridTemplateColumns: '1fr 1fr 1fr 1fr .25fr',
+					gridTemplateColumns: '1fr 1fr 1fr 1fr 40px',
 					textAlign: 'center',
 				}}>
 				<Box>
@@ -46,7 +53,7 @@ const Cart = () => {
 					<Box
 						sx={{
 							display: 'grid',
-							gridTemplateColumns: '1fr 1fr 1fr 1fr .25fr',
+							gridTemplateColumns: '1fr 1fr 1fr 1fr auto',
 							textAlign: 'center',
 						}}
 						alignItems='center'>
@@ -71,14 +78,22 @@ const Cart = () => {
 							</Typography>
 						</Box>
 
-						<Typography>Subtotal</Typography>
-						<IconButton>
+						<Typography>
+							{formatPrice(product.quantity * product.price)}
+						</Typography>
+						<IconButton onClick={() => deleteProductFromCart(product.id)}>
 							<Delete />
 						</IconButton>
 					</Box>
 					<Divider sx={{ margin: '1.5rem auto' }}></Divider>
 				</div>
 			))}
+			<Link href='/products'>
+				<Button variant='contained'>Continuer votre shopping</Button>
+			</Link>
+			<Typography variant='h5' textAlign='right'>
+				Montant total : {formatPrice(total_price)}
+			</Typography>
 		</Container>
 	)
 }

@@ -26,4 +26,6 @@ export type FilterState = {
 
 export type CartState = {
 	cart: Product[]
+	total_quantity: number
+	total_price: number
 }
