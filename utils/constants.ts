@@ -61,6 +61,28 @@ export const products = [
 		price: 5500,
 		size: '89',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Romance',
@@ -68,6 +90,28 @@ export const products = [
 		price: 5500,
 		size: '89',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Thirst of Color',
@@ -75,6 +119,28 @@ export const products = [
 		price: 5500,
 		size: '89',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Serenade',
@@ -82,6 +148,28 @@ export const products = [
 		price: 6500,
 		size: '125',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Roses from Pavlovo',
@@ -89,6 +177,28 @@ export const products = [
 		price: 6500,
 		size: '125',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Crimson autumn',
@@ -96,6 +206,28 @@ export const products = [
 		price: 6500,
 		size: '125',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Beloved',
@@ -103,6 +235,28 @@ export const products = [
 		price: 7500,
 		size: '148',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Beloved',
@@ -110,6 +264,28 @@ export const products = [
 		price: 7500,
 		size: '148',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Beloved',
@@ -117,6 +293,28 @@ export const products = [
 		price: 7500,
 		size: '148',
 		material: 'wool',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Moon Garden',
@@ -124,6 +322,28 @@ export const products = [
 		price: 6500,
 		size: '125',
 		material: 'silk',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Magic World',
@@ -131,6 +351,28 @@ export const products = [
 		price: 6500,
 		size: '125',
 		material: 'silk',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Summer evening',
@@ -138,6 +380,28 @@ export const products = [
 		price: 6500,
 		size: '125',
 		material: 'silk',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: '10262',
@@ -145,6 +409,28 @@ export const products = [
 		price: 7500,
 		size: '148',
 		material: 'silk',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: '10266',
@@ -152,6 +438,28 @@ export const products = [
 		price: 7500,
 		size: '148',
 		material: 'silk',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 	{
 		name: 'Pansies',
@@ -159,5 +467,27 @@ export const products = [
 		price: 7500,
 		size: '148',
 		material: 'silk',
+		gallery: [
+			{
+				id: 1,
+				url: '/images/sample-product-1.jpg',
+			},
+			{
+				id: 2,
+				url: '/images/sample-product-2.jpg',
+			},
+			{
+				id: 3,
+				url: '/images/sample-product-3.jpg',
+			},
+			{
+				id: 4,
+				url: '/images/sample-product-4.jpg',
+			},
+			{
+				id: 5,
+				url: '/images/sample-product-5.jpg',
+			},
+		],
 	},
 ]

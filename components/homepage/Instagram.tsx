@@ -58,8 +58,9 @@ const Instagram = () => {
 				}}
 				navigation
 				pagination={{ clickable: true }}
-				onSwiper={swiper => console.log(swiper)}
-				onSlideChange={() => console.log('slide change')}>
+				// onSwiper={swiper => console.log(swiper)}
+				// onSlideChange={() => console.log('slide change')}
+			>
 				{instagramImg.map(item => (
 					<SwiperSlide key={item.img}>
 						<Box

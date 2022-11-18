@@ -29,11 +29,17 @@ type CartProps = {
 	children: ReactNode
 }
 
+const getLocalStorage = () => {
+	let cartItems
+	if (typeof window !== 'undefined') {
+		cartItems = JSON.parse(localStorage.getItem('cartItems'))
+	}
+
+	return cartItems ?? []
+}
+
 const initialState: CartState = {
-	cart:
-		typeof window !== 'undefined'
-			? JSON.parse(localStorage.getItem('cartItems'))
-			: [],
+	cart: getLocalStorage(),
 	total_quantity: 0,
 	total_price: 0,
 }
@@ -42,6 +48,8 @@ const CartContext = createContext<CartContext | null>(null)
 
 export const CartProvider = ({ children }: CartProps) => {
 	const [state, dispatch] = useReducer(cart_reducer, initialState)
+
+	console.log(state.cart)
 
 	const addProductToCart = (product: Product) => {
 		dispatch({ type: ADD_PRODUCT_TO_CART, payload: product })
@@ -57,19 +65,8 @@ export const CartProvider = ({ children }: CartProps) => {
 
 	useEffect(() => {
 		dispatch({ type: COUNT_CART_TOTALS })
-	}, [state.cart])
-
-	useEffect(() => {
 		localStorage.setItem('cartItems', JSON.stringify(state.cart))
 	}, [state.cart])
-
-	useEffect(() => {
-		state.cart = JSON.parse(localStorage.getItem('cartItems'))
-
-		// if (cartItems) {
-		// 	state.cart = cartItems
-		// }
-	}, [])
 
 	return (
 		<CartContext.Provider

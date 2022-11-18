@@ -13,23 +13,13 @@ import ProductImages from '../../components/ProductImages'
 import Stars from '../../components/Stars'
 import { formatPrice } from '../../utils/helpers'
 import { useState } from 'react'
+import { SingleProduct, Product as ProductProps } from '../../interfaces'
 
 // import axios from 'axios'
 import { prisma } from '../../lib/prisma'
 import Link from 'next/link'
 
-type ProductProps = {
-	product: {
-		id: number
-		img: string
-		material: string
-		name: string
-		price: number
-		size: string
-	}
-}
-
-const Product = ({ product }: ProductProps) => {
+const Product = ({ product }: SingleProduct) => {
 	const [quantity, setQuantity] = useState(1)
 
 	return (
@@ -44,7 +34,7 @@ const Product = ({ product }: ProductProps) => {
 				</Link>
 			</Button>
 			<Stack sx={{ flexDirection: { md: 'row' } }} gap={4}>
-				<ProductImages />
+				<ProductImages gallery={product.gallery} />
 				<Box width='100%'>
 					<Typography variant='h4' mb={1} sx={{ fontWeight: '600' }}>
 						{product.name}
@@ -85,6 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			price: true,
 			size: true,
 			material: true,
+			gallery: true,
 		},
 	})
 	// const response = await axios(`/api/products/${params.id}`)
@@ -103,7 +94,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	// const response = await axios('/api/products')
 	// const products = response.data
 
-	const paths = products.map((product: ProductProps['product']) => ({
+	const paths = products.map((product: ProductProps) => ({
 		params: { id: product.id.toString() },
 	}))
 

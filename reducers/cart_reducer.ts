@@ -20,16 +20,18 @@ const cart_reducer = (state: CartState, action: CartAction) => {
 		const { id, quantity } = action.payload
 
 		if (state.cart.length > 0) {
-			const newCart = state.cart.reduce((prev, curr) => {
-				if (curr.id === id) {
-					const notCurr = prev.filter(product => product.id !== id)
-					return [...notCurr, { ...curr, quantity: curr.quantity + quantity }]
-				}
-				console.log('not in the cart')
-				return [...prev, action.payload]
-			}, state.cart)
-			console.log(newCart)
-			return { ...state, cart: newCart }
+			const isProductInCart = state.cart.some(product => product.id === id)
+
+			if (isProductInCart) {
+				const newCart = state.cart.map(product => {
+					if (product.id === id) {
+						return { ...product, quantity: product.quantity + quantity }
+					}
+					return product
+				})
+				return { ...state, cart: newCart }
+			}
+			return { ...state, cart: [...state.cart, action.payload] }
 		}
 		return { ...state, cart: [...state.cart, action.payload] }
 	}

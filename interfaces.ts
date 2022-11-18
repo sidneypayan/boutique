@@ -1,5 +1,5 @@
 export type Product = {
-	id: number
+	id: number | string
 	name: string
 	img: string
 	price: number
@@ -28,4 +28,21 @@ export type CartState = {
 	cart: Product[]
 	total_quantity: number
 	total_price: number
+}
+
+export type SingleProduct = {
+	product: {
+		id: number | string
+		img: string
+		material: string
+		name: string
+		price: number
+		size: string
+		gallery?: [
+			{
+				id: number | string
+				url: string
+			}
+		]
+	}
 }

@@ -3,11 +3,11 @@ import { Typography, Stack, IconButton, Button } from '@mui/material'
 import { Container } from '@mui/system'
 import { useCartContext } from '../context/cart_context'
 import { Dispatch, SetStateAction } from 'react'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 type ProductProps = {
 	product: {
-		id: number
+		id: number | string
 		img: string
 		material: string
 		name: string
@@ -19,7 +19,7 @@ type ProductProps = {
 }
 
 const AddToCart = ({ product, quantity, setQuantity }: ProductProps) => {
-	const router = useRouter()
+	// const router = useRouter()
 	const { addProductToCart } = useCartContext()
 
 	const { id, img, material, name, price, size } = product
