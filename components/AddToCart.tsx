@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 type ProductProps = {
 	product: {
-		id: number | string
+		id: number
 		img: string
 		material: string
 		name: string

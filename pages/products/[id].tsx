@@ -78,8 +78,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			gallery: true,
 		},
 	})
-	// const response = await axios(`/api/products/${params.id}`)
-	// const product = response.data
 
 	return {
 		props: {
@@ -91,8 +89,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const products = await prisma.product.findMany()
-	// const response = await axios('/api/products')
-	// const products = response.data
 
 	const paths = products.map((product: ProductProps) => ({
 		params: { id: product.id.toString() },

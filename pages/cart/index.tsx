@@ -5,6 +5,7 @@ import {
 	Container,
 	Divider,
 	IconButton,
+	Stack,
 	Typography,
 } from '@mui/material'
 import Link from 'next/link'
@@ -27,6 +28,7 @@ const Cart = () => {
 			sx={{
 				minHeight: 'calc(100vh - (330px))',
 				color: '#617d98',
+				marginBottom: '4rem',
 			}}>
 			<Box
 				sx={{
@@ -88,12 +90,22 @@ const Cart = () => {
 					<Divider sx={{ margin: '1.5rem auto' }}></Divider>
 				</div>
 			))}
-			<Link href='/products'>
-				<Button variant='contained'>Continuer votre shopping</Button>
-			</Link>
-			<Typography variant='h5' textAlign='right'>
-				Montant total : {formatPrice(total_price)}
-			</Typography>
+
+			<Stack direction='row' justifyContent='space-between' alignItems='center'>
+				<Link href='/products'>
+					<Button variant='contained' sx={{ height: 'auto' }}>
+						Continuer votre shopping
+					</Button>
+				</Link>
+				<Stack justifyContent='center' gap={2} mt={2}>
+					<Typography variant='h5'>
+						Montant total : {formatPrice(total_price)}
+					</Typography>
+					<Link href='/checkout'>
+						<Button variant='contained'>Procéder au paiment</Button>
+					</Link>
+				</Stack>
+			</Stack>
 		</Container>
 	)
 }

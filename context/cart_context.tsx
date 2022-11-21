@@ -49,8 +49,6 @@ const CartContext = createContext<CartContext | null>(null)
 export const CartProvider = ({ children }: CartProps) => {
 	const [state, dispatch] = useReducer(cart_reducer, initialState)
 
-	console.log(state.cart)
-
 	const addProductToCart = (product: Product) => {
 		dispatch({ type: ADD_PRODUCT_TO_CART, payload: product })
 	}

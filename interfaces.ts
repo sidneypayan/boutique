@@ -1,5 +1,5 @@
 export type Product = {
-	id: number | string
+	id: number
 	name: string
 	img: string
 	price: number
@@ -32,7 +32,7 @@ export type CartState = {
 
 export type SingleProduct = {
 	product: {
-		id: number | string
+		id: number
 		img: string
 		material: string
 		name: string
@@ -45,4 +45,9 @@ export type SingleProduct = {
 			}
 		]
 	}
+}
+
+export type DbProducts = {
+	id: number
+	price: number
 }
