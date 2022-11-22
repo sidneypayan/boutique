@@ -3,17 +3,15 @@ import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { Button, Typography } from '@mui/material'
 import { useCartContext } from '../context/cart_context'
 import { formatPrice } from '../utils/helpers'
-// import { useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 const CheckoutForm = () => {
 	const stripe = useStripe()
 	const elements = useElements()
-	const { total_price } = useCartContext()
-	// const {
-	// 	data: {
-	// 		user: { name },
-	// 	},
-	// } = useSession()
+	const { total_price, clearCart } = useCartContext()
+
+	const { status } = useSession()
+	const { data } = useSession()
 
 	const [message, setMessage] = useState(null)
 	const [isLoading, setIsLoading] = useState(false)
@@ -34,11 +32,10 @@ const CheckoutForm = () => {
 		stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
 			switch (paymentIntent.status) {
 				case 'succeeded':
-					console.log('Success')
 					setMessage('Payment succeeded!')
+					clearCart()
 					break
 				case 'processing':
-					console.log('En cours')
 					setMessage('Your payment is processing.')
 					break
 				case 'requires_payment_method':
@@ -66,7 +63,7 @@ const CheckoutForm = () => {
 			elements,
 			confirmParams: {
 				// Make sure to change this to your payment completion page
-				return_url: 'http://localhost:3000',
+				return_url: 'http://localhost:3000/checkout',
 			},
 		})
 
@@ -88,11 +85,26 @@ const CheckoutForm = () => {
 		layout: 'tabs',
 	}
 
-	return (
+	return message === 'Payment succeeded!' ? (
 		<>
-			{/* <Typography mb={2} variant='h5'>
-				Merci {name} pour votre commande !
-			</Typography> */}
+			<Typography mb={1} variant='body1'>
+				{data.user.name} Le paiment de votre commande s'est déroulé avec succès.
+			</Typography>
+			<Typography mb={2} variant='h5'>
+				Merci pour votre confiance !
+			</Typography>
+			<Button variant='contained' href='/products'>
+				Retour à la boutique
+			</Button>
+		</>
+	) : (
+		<>
+			{status === 'authenticated' && (
+				<Typography mb={2} variant='h5'>
+					Merci {data.user.name} pour votre commande !
+				</Typography>
+			)}
+
 			<Typography mb={1} variant='body1'>
 				Montant à régler : {formatPrice(total_price)}
 			</Typography>

@@ -23,8 +23,6 @@ const Navbar = () => {
 	const { status } = useSession()
 	const { total_quantity } = useCartContext()
 
-	// console.log(total_quantity)
-
 	return (
 		<AppBar
 			sx={{

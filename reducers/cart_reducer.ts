@@ -4,6 +4,7 @@ import {
 	TOGGLE_PRODUCT_QUANTITY,
 	COUNT_CART_TOTALS,
 	DELETE_PRODUCT_FROM_CART,
+	CLEAR_CART,
 } from '../actions'
 
 type CartAction =
@@ -14,6 +15,7 @@ type CartAction =
 	  }
 	| { type: typeof COUNT_CART_TOTALS }
 	| { type: typeof DELETE_PRODUCT_FROM_CART; payload: number }
+	| { type: typeof CLEAR_CART }
 
 const cart_reducer = (state: CartState, action: CartAction) => {
 	if (action.type === ADD_PRODUCT_TO_CART) {
@@ -77,6 +79,10 @@ const cart_reducer = (state: CartState, action: CartAction) => {
 	if (action.type === DELETE_PRODUCT_FROM_CART) {
 		const newCart = state.cart.filter(product => product.id !== action.payload)
 		return { ...state, cart: newCart }
+	}
+
+	if (action.type === CLEAR_CART) {
+		return { ...state, cart: [] }
 	}
 
 	throw new Error(`No Matching action type`)

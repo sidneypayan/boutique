@@ -12,6 +12,7 @@ import {
 	TOGGLE_PRODUCT_QUANTITY,
 	COUNT_CART_TOTALS,
 	DELETE_PRODUCT_FROM_CART,
+	CLEAR_CART,
 } from '../actions'
 
 // import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -23,6 +24,7 @@ type CartContext = {
 	addProductToCart: (product: Product) => void
 	toggleProductQuantity: (id: number, value: string) => void
 	deleteProductFromCart: (id: number) => void
+	clearCart: () => void
 }
 
 type CartProps = {
@@ -61,6 +63,10 @@ export const CartProvider = ({ children }: CartProps) => {
 		dispatch({ type: DELETE_PRODUCT_FROM_CART, payload: id })
 	}
 
+	const clearCart = () => {
+		dispatch({ type: CLEAR_CART })
+	}
+
 	useEffect(() => {
 		dispatch({ type: COUNT_CART_TOTALS })
 		localStorage.setItem('cartItems', JSON.stringify(state.cart))
@@ -73,6 +79,7 @@ export const CartProvider = ({ children }: CartProps) => {
 				addProductToCart,
 				toggleProductQuantity,
 				deleteProductFromCart,
+				clearCart,
 			}}>
 			{children}
 		</CartContext.Provider>

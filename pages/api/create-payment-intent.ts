@@ -53,9 +53,6 @@ export default async function handler(
 	const paymentIntent = await stripe.paymentIntents.create({
 		amount: calculateOrderAmount(mergedCarts),
 		currency: 'eur',
-		automatic_payment_methods: {
-			enabled: false,
-		},
 	})
 
 	res.send({
