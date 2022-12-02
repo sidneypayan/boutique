@@ -46,7 +46,7 @@ const CheckoutForm = () => {
 					break
 			}
 		})
-	}, [stripe])
+	}, [clearCart, stripe])
 
 	const handleSubmit = async e => {
 		e.preventDefault()
