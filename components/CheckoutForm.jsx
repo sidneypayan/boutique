@@ -88,7 +88,8 @@ const CheckoutForm = () => {
 	return message === 'Payment succeeded!' ? (
 		<>
 			<Typography mb={1} variant='body1'>
-				{data.user.name} Le paiment de votre commande s'est déroulé avec succès.
+				{data.user.name} Le paiment de votre commande s&apos;est déroulé avec
+				succès.
 			</Typography>
 			<Typography mb={2} variant='h5'>
 				Merci pour votre confiance !
