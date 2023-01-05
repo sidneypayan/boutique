@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 // This is your test secret API key.
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-import { prisma } from '../../lib/prisma'
+import prisma from '../../lib/prisma'
 import { Product, DbProducts } from '../../interfaces'
 
 const getProductsFromDB = async (cart: Product[]) => {
