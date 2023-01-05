@@ -16,7 +16,7 @@ import { useState } from 'react'
 import { SingleProduct, Product as ProductProps } from '../../interfaces'
 
 // import axios from 'axios'
-import { prisma } from '../../lib/prisma'
+import prisma from '../../lib/prisma'
 import Link from 'next/link'
 
 const Product = ({ product }: SingleProduct) => {
