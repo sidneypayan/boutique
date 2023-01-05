@@ -10,7 +10,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 				const products = await prisma.product.findMany()
 				res.status(200).json(products)
 			} catch (error) {
-				console.error('Request error', e)
+				console.error('Request error', error)
 				res.status(500).json({ error: 'Error fetching posts' })
 			}
 			break
